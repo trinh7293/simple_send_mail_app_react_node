@@ -6,13 +6,11 @@ import * as sendMailService from "../../services/sendMailService";
 
 const initialFValues = {
     id: 0,
-    fullName: '',
-    email: '',
-    mobile: '',
-    city: '',
-    // gender: 'male',
-    // departmentId: '',
-    // hireDate: new Date(),
+    senderName: '',
+    senderEmail: '',
+    recipientEmail: '',
+    subject: '',
+    message: '',
     isPermanent: false,
 }
 
@@ -20,12 +18,26 @@ export default function SendMailForm() {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
-        if ('fullName' in fieldValues)
-            temp.fullName = fieldValues.fullName ? "" : "This field is required."
-        if ('email' in fieldValues)
-            temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Email is not valid."
-        if ('mobile' in fieldValues)
-            temp.mobile = fieldValues.mobile.length > 9 ? "" : "Minimum 10 numbers required."
+        if ('senderName' in fieldValues)
+            temp.senderName = fieldValues.senderName ? "" : "This field is required."
+        if ('senderEmail' in fieldValues){
+            if(!fieldValues.senderEmail) {
+                temp.senderEmail = "This field is required."
+            } else {
+                temp.senderEmail = (/$^|.+@.+..+/).test(fieldValues.senderEmail) ? "" : "SenderEmail is not valid."
+            }
+        }
+        if ('recipientEmail' in fieldValues){
+            if(!fieldValues.recipientEmail) {
+                temp.recipientEmail = "This field is required."
+            } else {
+                temp.recipientEmail = (/$^|.+@.+..+/).test(fieldValues.senderEmail) ? "" : "RecipientEmail is not valid."
+            }
+        }
+        if ('subject' in fieldValues)
+            temp.subject = fieldValues.subject ? "" : "This field is required."
+        if ('message' in fieldValues)
+            temp.message = fieldValues.message ? "" : "This field is required."
         setErrors({
             ...temp
         })
@@ -55,31 +67,39 @@ export default function SendMailForm() {
             <Grid container>
                 <Grid item xs={12}>
                     <Controls.Input
-                        name="fullName"
+                        name="senderName"
                         label="Full Name"
-                        value={values.fullName}
+                        value={values.senderName}
                         onChange={handleInputChange}
-                        error={errors.fullName}
+                        error={errors.senderName}
                     />
                     <Controls.Input
-                        label="Email"
-                        name="email"
-                        value={values.email}
+                        label="SenderEmail"
+                        name="senderEmail"
+                        value={values.senderEmail}
                         onChange={handleInputChange}
-                        error={errors.email}
+                        error={errors.senderEmail}
                     />
                     <Controls.Input
-                        label="Mobile"
-                        name="mobile"
-                        value={values.mobile}
+                        label="RecipientEmail"
+                        name="recipientEmail"
+                        value={values.recipientEmail}
                         onChange={handleInputChange}
-                        error={errors.mobile}
+                        error={errors.recipientEmail}
                     />
                     <Controls.Input
-                        label="City"
-                        name="city"
-                        value={values.city}
+                        label="Subject"
+                        name="subject"
+                        value={values.subject}
                         onChange={handleInputChange}
+                        error={errors.subject}
+                    />
+                    <Controls.Input
+                        label="Message"
+                        name="message"
+                        value={values.message}
+                        onChange={handleInputChange}
+                        error={errors.message}
                     />
                     <div>
                         <Controls.Button
