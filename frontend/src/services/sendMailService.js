@@ -11,7 +11,7 @@ export async function sendMailApi(data) {
         subject: subject,
         message: text
     } = data
-    const result = await axios.post('post-test', {
+    const result = await axios.post('sendEmail', {
         from,
         to,
         subject,

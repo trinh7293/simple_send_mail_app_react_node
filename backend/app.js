@@ -27,7 +27,7 @@ app.get('/api', (req, res) => {
     res.send('Hello World!')
 })
 
-app.post('/post-test', async (req, res) => {
+app.post('/sendEmail', async (req, res) => {
     console.log('Got body:', req.body);
     const {
         from,
