@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-// import SideMenu from "../components/SideMenu";
+import SideMenu from "../components/SideMenu";
 import {
-  // makeStyles, 
+  makeStyles,
   CssBaseline, createTheme, ThemeProvider
 } from '@material-ui/core';
-// import Header from "../components/Header";
+import Header from "../components/Header";
 
 import SendMail from "../pages/SendMail/SendMail";
 
@@ -38,24 +38,24 @@ const theme = createTheme({
 })
 
 
-// const useStyles = makeStyles({
-//   appMain: {
-//     paddingLeft: '320px',
-//     width: '100%'
-//   }
-// })
+const useStyles = makeStyles({
+  appMain: {
+    paddingLeft: '320px',
+    width: '100%'
+  }
+})
 
 function App() {
-  // const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <SideMenu /> */}
-      {/* <div className={classes.appMain}> */}
-      {/* <Header /> */}
+      <SideMenu />
+      <div className={classes.appMain}>
+        <Header />
 
-      <SendMail />
-      {/* </div> */}
+        <SendMail />
+      </div>
       <CssBaseline />
     </ThemeProvider>
   );
