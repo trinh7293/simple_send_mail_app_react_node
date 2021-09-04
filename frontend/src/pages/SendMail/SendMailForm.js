@@ -20,15 +20,15 @@ export default function SendMailForm() {
         let temp = { ...errors }
         if ('senderName' in fieldValues)
             temp.senderName = fieldValues.senderName ? "" : "This field is required."
-        if ('senderEmail' in fieldValues){
-            if(!fieldValues.senderEmail) {
+        if ('senderEmail' in fieldValues) {
+            if (!fieldValues.senderEmail) {
                 temp.senderEmail = "This field is required."
             } else {
                 temp.senderEmail = (/$^|.+@.+..+/).test(fieldValues.senderEmail) ? "" : "SenderEmail is not valid."
             }
         }
-        if ('recipientEmail' in fieldValues){
-            if(!fieldValues.recipientEmail) {
+        if ('recipientEmail' in fieldValues) {
+            if (!fieldValues.recipientEmail) {
                 temp.recipientEmail = "This field is required."
             } else {
                 temp.recipientEmail = (/$^|.+@.+..+/).test(fieldValues.senderEmail) ? "" : "RecipientEmail is not valid."
@@ -56,7 +56,7 @@ export default function SendMailForm() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        if (validate()){
+        if (validate()) {
             sendMailService.sendMailApi(values)
             resetForm()
         }

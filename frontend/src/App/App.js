@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // import SideMenu from "../components/SideMenu";
-import { 
+import {
   // makeStyles, 
   CssBaseline, createTheme, ThemeProvider
 } from '@material-ui/core';
@@ -23,16 +23,16 @@ const theme = createTheme({
       default: "#f4f5fd"
     },
   },
-  overrides:{
-    MuiAppBar:{
-      root:{
-        transform:'translateZ(0)'
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: 'translateZ(0)'
       }
     }
   },
-  props:{
-    MuiIconButton:{
-      disableRipple:true
+  props: {
+    MuiIconButton: {
+      disableRipple: true
     }
   }
 })
@@ -52,9 +52,9 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* <SideMenu /> */}
       {/* <div className={classes.appMain}> */}
-        {/* <Header /> */}
-        
-        <SendMail />
+      {/* <Header /> */}
+
+      <SendMail />
       {/* </div> */}
       <CssBaseline />
     </ThemeProvider>

@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#fff',
-        
+
     },
     searchInput: {
         opacity: '0.6',
