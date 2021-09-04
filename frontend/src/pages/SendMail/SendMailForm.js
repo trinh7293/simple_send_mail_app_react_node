@@ -31,7 +31,7 @@ export default function SendMailForm() {
             if (!fieldValues.recipientEmail) {
                 temp.recipientEmail = "This field is required."
             } else {
-                temp.recipientEmail = (/$^|.+@.+..+/).test(fieldValues.senderEmail) ? "" : "RecipientEmail is not valid."
+                temp.recipientEmail = (/$^|.+@.+..+/).test(fieldValues.recipientEmail) ? "" : "RecipientEmail is not valid."
             }
         }
         if ('subject' in fieldValues)
