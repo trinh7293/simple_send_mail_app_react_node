@@ -9,6 +9,8 @@
   SECRET=<pass>
 3. in backend folder run:
   yarn
+then run: node app.js
 4. go to frontend folder, run:
   yarn
+then run: yarn start
 5. go to http://localhost:3003, and test the result, send your email
